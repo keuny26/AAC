@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #F8FAFC;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --border-color: #E2E8F0;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  touch-action: manipulation;
+}
+
+/* 터치 최적화 */
+.touch-target {
+  min-width: 48px;
+  min-height: 48px;
+  touch-action: manipulation;
+}
+
+/* 청자 모드 글로우 효과 */
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 221, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(255, 221, 0, 0.6);
+  }
+}
+
+.listener-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 버튼 누름 효과 */
+.press-effect:active {
+  transform: scale(0.95);
+}
+
+/* 스크롤바 완전 숨김 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 가로 스크롤 강제 */
+.scroll-x {
+  overflow-x: scroll !important;
+  -webkit-overflow-scrolling: touch;
+}
